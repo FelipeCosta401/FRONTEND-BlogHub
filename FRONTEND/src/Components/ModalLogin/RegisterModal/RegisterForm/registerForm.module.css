@@ -1,0 +1,24 @@
+.container{
+    display: flex;
+    flex-direction: column;
+    max-height: 100%;
+    margin: auto 0;
+    width: 100%;
+}
+
+.form{
+    margin: auto;
+    width: 70%;
+}
+
+.input{
+    width: 100%;
+    background-color: rgb(211, 211, 211);
+    margin-bottom: 2vh;
+}
+
+.loginButton{
+    width: 50%;
+    margin: 0 auto;
+    margin-bottom: 2vh;
+}

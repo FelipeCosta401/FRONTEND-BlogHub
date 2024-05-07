@@ -1,0 +1,55 @@
+.background{
+    filter: blur(2px);
+}
+
+.modalContainer{
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.7);
+    background-color: #fff;
+    width: 65%;
+    height: 80%;    
+    border-radius: 18px;
+}
+
+.p-dialog-header{
+    display: none;
+}
+
+.modalContent{
+    display: flex;
+    margin: 0;
+    height: 100%;
+}
+
+.modalContentBackground{
+    width: 100%;    
+    order: 1;
+}
+
+.modalContentForm{
+    width: 100%;    
+    display: flex;
+    flex-direction: column;        
+    order: 2;
+}
+
+.header{
+    height: 10%;
+    text-align: end;
+    margin: 0;
+}
+
+.modalContentForm .title{
+    width: 100%;    
+    margin-top: 5vh;
+    text-align: center;
+}
+
+
+.registerOption{
+    text-align: center;
+    margin-bottom: 5vh;
+}
+
+.registerOption a{
+    text-decoration: none;
+}

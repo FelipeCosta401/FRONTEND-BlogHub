@@ -1,0 +1,10 @@
+h1{
+    text-align: center;
+    margin-bottom: 35px;
+}
+
+.cards{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 25px;
+}

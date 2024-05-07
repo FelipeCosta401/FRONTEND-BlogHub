@@ -1,0 +1,40 @@
+.container{
+    border-radius: 8px;
+    background-color: #fff;
+    margin-bottom: 2vh;
+}
+
+
+.userInfo{
+    padding: 0 5px;
+}
+
+.userInfo, .user{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    justify-content: space-between;
+}
+
+.userInfo p{
+    font-size: 0.9rem;    
+}
+
+.content, .commentInfo{
+    margin: 5px 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+}
+
+
+.comment p{
+    font-weight: 500;
+}
+
+.footer{
+    display: flex;
+    align-items: center;
+    margin: 0 15px;
+}

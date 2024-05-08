@@ -4,32 +4,41 @@ import { AiFillLike } from "react-icons/ai";
 
 import estilos from "./comment.module.css";
 
-const Comment = () => {
+const Comment = ({ props: comment }) => {
   return (
     <>
       <div className={estilos.container}>
         <div className={estilos.userInfo}>
+
           <div className={estilos.user}>
             <FaUserCircle size={20} />
-            <p>Nome do usuário</p>
+            <p>{comment.user.username}</p>
           </div>
+
           <div className={estilos.postInfo}>
-            <p>Há uma hora</p>
+            <p>{comment.created_at}</p>
           </div>
+
         </div>
+
         <div className={estilos.content}>
+
           <div className={estilos.comment}>
-            <p>Caramba! Que publicação interessante!</p>
+            <p>{comment.message}</p>
           </div>
-          <div className={estilos.commentInfo}>
+
+          {/* <div className={estilos.commentInfo}>
             <AiFillLike size={15} />
             <p>15</p>
-          </div>
+          </div> */}
+
         </div>
-        <div className={estilos.footer}>
-            <MdOutlineSubdirectoryArrowRight size={25} />
-            <p>Ver 3 respostas</p>
-        </div>
+
+        {/* <div className={estilos.footer}>
+          <MdOutlineSubdirectoryArrowRight size={25} />
+          <p>Ver 3 respostas</p>
+        </div> */}
+
       </div>
     </>
   );

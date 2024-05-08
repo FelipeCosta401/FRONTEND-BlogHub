@@ -15,12 +15,15 @@ const Card = ({ id, title, desc, img, user, userImg, data }) => {
           window.location.replace(`/post/${id}`);
         }}
       >
-        <div className={estilos.cardImg}>
-          <img src={img} />
-        </div>
+        <img src={img} />
+
         <div className={estilos.cardContainer}>
           <div className={estilos.userInfo}>
-            {!userImg && <FaUserCircle size={25} />}
+            {userImg ? (
+              <img src={userImg} className={estilos.userImage} />
+            ) : (
+              <FaUserCircle size={25} />
+            )}
             <p>{user}</p>
           </div>
           <div className={estilos.cardContent}>
@@ -44,7 +47,7 @@ const Card = ({ id, title, desc, img, user, userImg, data }) => {
                 </div>
               </div>
               <div className={estilos.cardInfo}>
-                <p>Publicado: {data}</p>
+                <p>{data}</p>
               </div>
             </div>
           </div>

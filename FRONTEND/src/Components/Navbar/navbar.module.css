@@ -8,19 +8,18 @@
 
 .logo{
     margin: auto 5vw;
-    width: 20vw;
+    width: 30%;
     height: 90%;
     text-align: center;
 }
 
 .logo img{
-    width: 100px;
-    
+    width: 100px;    
 }
 
 .searchField{
     background-color: rgba(46, 167, 251, 0.38) ; 
-    width: 25vw;
+    width: 30%;
     height: 50%;
     margin: auto 0; 
     border-radius: 8px;
@@ -58,7 +57,7 @@
 
 .loginContainer{
     height: 50%;
-    width: 20vw;
+    width: 30%;
     margin: auto 5vw;
     align-items: center;
 }

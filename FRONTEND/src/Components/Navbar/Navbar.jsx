@@ -49,7 +49,7 @@ const Navbar = ({ status }) => {
         </div>
         {sidebar && <SidebarComponent onClose={() => setSidebar(false)} />}
       </div>
-    </>
+    </>   
   );
 };
 

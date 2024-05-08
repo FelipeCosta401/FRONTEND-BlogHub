@@ -17,12 +17,30 @@ const ViewPost = () => {
   const [postUser, setPostUser] = useState({});
 
   useEffect(() => {
+    //GET das publicações
     axios.get(`http://172.16.0.19:8000/api/publication/${id}`).then((res) => {
-      setPost(res.data);
-      setPostUser({
-        name: res.data.user.username,
-        img: res.data.user.perfil_image,
-      });
+      console.log(res.data);
+      // setPost({
+      //   title: res.data.title,
+      //   desc: res.data.description,
+      //   img: res.data.publication_image,
+      // });
+      // setPostUser({
+      //   username: res.data.user.username,
+      //   userImg: res.data.user.perfil_image,
+      // });
+
+      //FORMATA A DATA
+      //   const data = new Date(res.data.created_at);
+      //   const dataFormatada = data.toLocaleString("pt-BR", {
+      //     day: "2-digit",
+      //     month: "2-digit",
+      //     year: "numeric",
+      //   });
+      //   setPost((prevPost) => ({
+      //     ...prevPost,
+      //     data: dataFormatada,
+      //   }));
     });
   }, [id]);
 
@@ -32,35 +50,41 @@ const ViewPost = () => {
         <header>
           <Navbar />
         </header>
-        {/* <button onClick={() => console.log(postUser)}>teste</button> */}
         <main>
           <div className={estilos.post}>
-            {!post.img ? (
-              <p style={{ textAlign: "center", color: "red" }}>
-                Essa publicação não possui imagem!
-              </p>
-            ) : (
-              <div className={estilos.postImg}>
+            <div className={estilos.postImg}>
+              {post.img ? (
                 <img src={post.img} alt="" />
-              </div>
-            )}
+              ) : (
+                <p style={{ textAlign: "center" }}>Carregando...</p>
+              )}
+            </div>
+
             <div className={estilos.postContent}>
-              <div className={estilos.userInfo}>
+              <div className={estilos.header}>
                 <div className={estilos.user}>
-                  {postUser.img ? undefined : <FaUserCircle size={35} />}
-                  <p>{postUser.name}</p>
+                  {postUser.userImg ? (
+                    <img src={postUser.userImg} style={{ width: "30px" }} />
+                  ) : (
+                    <FaUserCircle size={35} />
+                  )}
+                  <p>{postUser.username}</p>
                 </div>
+
                 <div className={estilos.postInfo}>
-                  <p>Publicado: {post.created_at}</p>
+                  <p>Publicado: {post.data}</p>
                 </div>
               </div>
+
               <div className={estilos.mainContent}>
                 <div className={estilos.postTitle}>
                   <h1>{post.title}</h1>
                 </div>
+
                 <div className={estilos.postDesc}>
-                  <p>{post.description}</p>
+                  <p>{post.desc}</p>
                 </div>
+
                 <div className={estilos.postFooter}>
                   <div className={estilos.reactionsLike}>
                     <AiFillLike size={25} />
@@ -74,9 +98,7 @@ const ViewPost = () => {
               </div>
               <h4>Comentários:</h4>
               <div className={estilos.commentsContainer}>
-                <Comment />
-                <Comment />
-                <Comment />
+                {/* <Comment props={post.comments} /> */}
               </div>
             </div>
           </div>

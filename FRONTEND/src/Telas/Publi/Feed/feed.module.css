@@ -3,8 +3,11 @@ h1{
     margin-bottom: 35px;
 }
 
+
+
 .cards{
-    display: flex;
-    flex-wrap: wrap;
-    gap: 25px;
+    height: 100%;
+    width: 100%;
+    column-count: 2;
+    column-gap: 20px;
 }

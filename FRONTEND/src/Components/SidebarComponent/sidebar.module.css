@@ -2,7 +2,7 @@
 .sidebar{
     height: 100vh;
     background-color: #0A98FA;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5)
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
 
 .sidebarHeader{
@@ -15,9 +15,14 @@
     color: #fff;
 }       
 
+.sidebarMain{
+    height: 70%;
+    border: 1px solid rgba(0, 0, 0, 0.1 );
+}
+
 .sidebarItens{
     width: 90%;
-    margin: 5vh auto;
+    margin: 5vh auto;    
 }
 
 .sidebarItens h3 {
@@ -39,6 +44,7 @@
 }
 
 .sidebarFooter{
+    height: 10%;
     color: red;
     font-weight: 700;
     display: flex;

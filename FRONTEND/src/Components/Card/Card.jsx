@@ -6,44 +6,44 @@ import { FiMessageCircle } from "react-icons/fi";
 
 import estilos from "./card.module.css";
 
-const Card = ({ id, title, desc, img, user, userImg, data }) => {
+const Card = ({ props: post, data }) => {
   return (
     <>
       <div
         className={estilos.container}
         onClick={() => {
-          window.location.replace(`/post/${id}`);
+          window.location.replace(`/post/${post.id}`);
         }}
       >
-        <img src={img} />
+        <img src={post.publication_image} />
 
         <div className={estilos.cardContainer}>
           <div className={estilos.userInfo}>
-            {userImg ? (
-              <img src={userImg} className={estilos.userImage} />
+            {post.user.perfil_image ? (
+              <img src={post.user.perfil_image} className={estilos.userImage} />
             ) : (
               <FaUserCircle size={25} />
             )}
-            <p>{user}</p>
+            <p>{post.user.username}</p>
           </div>
           <div className={estilos.cardContent}>
             <div clsasName={estilos.cardTitle}>
-              <h4>{title}</h4>
+              <h4>{post.title}</h4>
             </div>
 
             <div className={estilos.cardDesc}>
-              <p>{desc}</p>
+              <p>{post.description}</p>
             </div>
 
             <div className={estilos.cardFooter}>
               <div className={estilos.cardReactions}>
                 <div className={estilos.reactionsLike}>
                   <AiFillLike size={25} />
-                  <p>150</p>
+                  <p>{post.likes_count}</p>
                 </div>
                 <div className={estilos.reactionsComments}>
                   <FiMessageCircle size={25} />
-                  <p>4</p>
+                  <p>{post.comments.length}</p>
                 </div>
               </div>
               <div className={estilos.cardInfo}>

@@ -29,12 +29,19 @@ const LoginForm = () => {
       toast.error("Preencha todos os campos!");
     } else {
       axios
-        .post("http://localhost:3000/login", {
+        .post("http://172.16.0.19:8000/api/login", {
           email: user.name,
           password: user.password,
         })
         .then((res) => {
-          toast.success(res.data.msg);
+          try {
+            localStorage.setItem("userToken", res.data.data.token);
+            localStorage.setItem("userInfo", JSON.stringify(res.data.User))
+            toast.success(res.data.message);
+            window.location.replace(`/`)
+          } catch (error) {
+            console.log(error)
+          }
         })
         .catch((res, err) => {
           toast.error(res.response.data.msg);

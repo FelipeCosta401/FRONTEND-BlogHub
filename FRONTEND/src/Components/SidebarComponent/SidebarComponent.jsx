@@ -13,6 +13,12 @@ import estilos from "./sidebar.module.css";
 
 const SidebarComponent = ({ onClose }) => {
   const [sidebarVisible, setSidebarVisible] = useState(true);
+
+  const handleLogOut = () =>{
+    localStorage.removeItem("userToken")
+    window.location.replace("/")
+  }
+
   return (
     <>
       <div className="container">
@@ -56,7 +62,7 @@ const SidebarComponent = ({ onClose }) => {
             </div>
           </main>
           <footer className={estilos.sidebarFooter}>
-            <div className={estilos.logOutButton}>
+            <div className={estilos.logOutButton} onClick={() => handleLogOut()}>
               <IoIosLogOut size={35} color={"red"} />
               <p>Sair</p>
             </div>

@@ -1,0 +1,29 @@
+.container{
+    border-radius: 8px;
+    background-color: #fff;
+    margin-bottom: 2vh;
+    display: flex;
+    justify-content: space-between;
+    
+}
+
+.form{
+    width: 70%;
+    margin: 2vh;
+    display: flex;
+    gap: 15px;
+    flex-direction: column;
+}
+
+.input{
+    width: 100%;
+}
+
+.closeIcon{
+    transition: all 0.2s ease;
+}
+
+.closeIcon:hover{
+    color: rgb(255, 0, 0);
+    cursor: pointer;
+}

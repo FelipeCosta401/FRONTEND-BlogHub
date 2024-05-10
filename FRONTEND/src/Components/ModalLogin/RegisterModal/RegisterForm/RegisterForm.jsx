@@ -17,6 +17,7 @@ const FormModal = () => {
     username: "",
     birthdate: "",
   });
+  const [confPassword, setConfPassword] = useState("");
 
   const userRegister = (e) => {
     const { name, value } = e.target;
@@ -31,11 +32,13 @@ const FormModal = () => {
     if (
       !newUser.name ||
       !newUser.email ||
-      !newUser.password ||  
+      !newUser.password ||
       !newUser.username ||
       !newUser.birthdate
     ) {
       toast.error("Preencha todos os campos");
+    } else if (confPassword !== newUser.password) {
+      toast.warn("As senhas não condizem!");
     } else {
       axios
         .post("http://172.16.0.19:8000/api/user", {
@@ -46,7 +49,7 @@ const FormModal = () => {
           birthdate: newUser.birthdate,
         })
         .then((res) => {
-          toast.success(res.data.msg);
+          toast.success("Cadastrado com sucesso!");
 
           setNewUser({
             name: "",
@@ -57,7 +60,7 @@ const FormModal = () => {
           });
         })
         .catch((res) => {
-          toast.error(res.response.data.msg);
+          toast.error(res.message);
         });
     }
   };
@@ -88,6 +91,18 @@ const FormModal = () => {
               style={{ width: "100%" }}
             />
           </div>
+
+          <div className={estilos.input}>
+            <TextField
+              id="outlined-basic"
+              label="Nome de usuário"
+              variant="outlined"
+              name="username"
+              value={newUser.username}
+              onChange={userRegister}
+              style={{ width: "100%" }}
+            />
+          </div>
           <div className={estilos.input}>
             <TextField
               id="outlined-basic"
@@ -99,14 +114,15 @@ const FormModal = () => {
               style={{ width: "100%" }}
             />
           </div>
+
           <div className={estilos.input}>
             <TextField
               id="outlined-basic"
-              label="Nome de usuário"
+              label="Confirmar senha"
+              name="confPassword"
+              value={confPassword}
+              onChange={(e) => setConfPassword(e.target.value)}
               variant="outlined"
-              name="username"
-              value={newUser.username}
-              onChange={userRegister}
               style={{ width: "100%" }}
             />
           </div>

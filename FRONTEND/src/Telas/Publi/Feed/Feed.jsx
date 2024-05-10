@@ -1,18 +1,17 @@
 import { useEffect, useState } from "react";
-import axios from "axios";
+import axiosInstace from "../../../services/axiosConfig";
 
 import Card from "../../../Components/Card/Card";
 import estilos from "./feed.module.css";
 
 const Feed = () => {
   const [posts, setPosts] = useState([]);
-  const [qtdPosts, setQtdPosts] = useState();
 
   useEffect(() => {
-    axios
-      .get("http://172.16.0.19:8000/api/publication")
+    axiosInstace
+      .get("publication")
       .then((res) => {
-        setPosts([...res.data[0]]);
+        setPosts([...res.data]);
       })
       .catch((err) => {
         console.log(err);
@@ -36,12 +35,7 @@ const Feed = () => {
           {posts.map((post) => (
             <Card
               key={post.id}
-              id={post.id}
-              title={post.title}
-              desc={post.description}
-              img={post.publication_image}
-              user={post.user.username}
-              userImg={post.user.perfil_image}
+              props={post}
               data={formatData(post.created_at)}
             />
           ))}
@@ -51,12 +45,7 @@ const Feed = () => {
           {posts.map((post) => (
             <Card
               key={post.id}
-              id={post.id}
-              title={post.title}
-              desc={post.description}
-              img={post.publication_image}
-              user={post.user.username}
-              userImg={post.user.perfil_image}
+              props={post}
               data={formatData(post.created_at)}
             />
           ))}

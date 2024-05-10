@@ -13,6 +13,19 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+/* Estilizando a barra de rolagem */
+::-webkit-scrollbar {
+  width: 10px; /* largura da barra de rolagem */
+}
+
+/* Estilizando o indicador da barra de rolagem */
+::-webkit-scrollbar-thumb {
+  background-color: #161616; /* cor do indicador da barra de rolagem */
+}
+
+
+
+
 *{
   padding: 0;
   margin: 0;

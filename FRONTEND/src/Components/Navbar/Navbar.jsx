@@ -8,7 +8,7 @@ import SidebarComponent from "../SidebarComponent/SidebarComponent";
 import Logo from "../../assets/MainLogo.png";
 import estilos from "./navbar.module.css";
 
-const Navbar = ({ status }) => {
+const Navbar = ({ status, props: user }) => {
   const [sidebar, setSidebar] = useState(false);
   return (
     <>
@@ -34,10 +34,18 @@ const Navbar = ({ status }) => {
                 <FaBell size={55} color={"gold"} />
               </div>
               <div className={estilos.loginIcon}>
-                <FaRegUserCircle
-                  size={55}
-                  onClick={() => setSidebar(!sidebar)}
-                />
+                {user.perfil_image !== null ? (
+                  <img
+                    src={user.perfil_image}
+                    style={{ width: "20%" }}
+                    onClick={() => setSidebar(!sidebar)}
+                  />
+                ) : (
+                  <FaRegUserCircle
+                    size={55}
+                    onClick={() => setSidebar(!sidebar)}
+                  />
+                )}
               </div>
             </div>
           )}
@@ -49,7 +57,7 @@ const Navbar = ({ status }) => {
         </div>
         {sidebar && <SidebarComponent onClose={() => setSidebar(false)} />}
       </div>
-    </>   
+    </>
   );
 };
 

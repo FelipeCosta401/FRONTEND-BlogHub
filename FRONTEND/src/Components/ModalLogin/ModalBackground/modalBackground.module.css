@@ -1,8 +1,8 @@
 .container{
-    border-radius: 18px 0 0 18px;
     text-align: center;
     background-color: #129BFA;
     color: #fff;
+    border-radius: 18px 0 0 18px ;
     height: 100%;
 }
 
@@ -17,7 +17,17 @@
 }
 
 .backgroundParagraph{
-    width: 65%;
+    width: 85%;
     margin: 5vh auto;
     text-align: center;
+}
+
+
+
+@media(max-width: 1100px){
+
+    .container img{        
+        width: 25%;
+    }
+
 }

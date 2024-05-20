@@ -4,14 +4,13 @@ import axiosInstance from "../services/axiosConfig";
 const useFetchPost = (postId) => {
   const [postData, setPostData] = useState({});
   const [userPostData, setUserPostData] = useState({});
-  const [commentsLength, setCommentsLength] = useState();
   const [commentsData, setCommentsData] = useState([]);
 
   useEffect(() => {
     const fetchPost = async () => {
       await axiosInstance(`publication/${postId}`).then((res) => {
         const publicationData = res.data[0];
-        console.log(publicationData);
+        // console.log(publicationData)
         setPostData({
           id: publicationData.id,
           title: publicationData.title,
@@ -21,11 +20,10 @@ const useFetchPost = (postId) => {
           likes: publicationData.likes_count,
         });
         setUserPostData({
-          id: publicationData.user.userId,
+          id: publicationData.user.id,
           username: publicationData.user.username,
           userImg: publicationData.user.perfil_image,
         });
-        setCommentsLength(publicationData.comments.length);
         setCommentsData(publicationData.comments);
       });
     };
@@ -33,7 +31,7 @@ const useFetchPost = (postId) => {
     fetchPost();
   }, [postId]);
 
-  return { postData, userPostData, commentsData, commentsLength };
+  return { postData, userPostData, commentsData };
 };
 
 export default useFetchPost;

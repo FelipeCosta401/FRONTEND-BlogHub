@@ -20,7 +20,10 @@ const Card = ({ props: post, data }) => {
         <div className={estilos.cardContainer}>
           <div className={estilos.userInfo}>
             {post.user.perfil_image ? (
-              <img src={post.user.perfil_image} className={estilos.userImage} />
+              <div
+                className={estilos.userImg}
+                style={{ backgroundImage: `url(${post.user.perfil_image})` }}
+              ></div>
             ) : (
               <FaUserCircle size={25} />
             )}

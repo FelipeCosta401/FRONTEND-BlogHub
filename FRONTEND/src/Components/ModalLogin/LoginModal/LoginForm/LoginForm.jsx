@@ -44,7 +44,7 @@ const LoginForm = () => {
           }
         })
         .catch((res, err) => {
-          toast.error(res.response.data.msg);
+          toast.error("Email e/ou senha incorretos!");
         });
     }
     // window.location.replace("/2")

@@ -35,11 +35,11 @@ const Navbar = ({ status, props: user }) => {
               </div>
               <div className={estilos.loginIcon}>
                 {user.perfil_image !== null ? (
-                  <img
-                    src={user.perfil_image}
-                    style={{ width: "20%" }}
+                  <div
+                    className={estilos.userImg}
+                    style={{ backgroundImage: `url(${user.perfil_image})` }}
                     onClick={() => setSidebar(!sidebar)}
-                  />
+                  ></div>
                 ) : (
                   <FaRegUserCircle
                     size={55}

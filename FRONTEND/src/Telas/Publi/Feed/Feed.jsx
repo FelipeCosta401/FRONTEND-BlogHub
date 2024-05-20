@@ -11,6 +11,7 @@ const Feed = () => {
     axiosInstace
       .get("publication")
       .then((res) => {
+        // console.log(res.data);
         setPosts([...res.data]);
       })
       .catch((err) => {
@@ -30,27 +31,11 @@ const Feed = () => {
 
   return (
     <>
-      {posts.length % 2 == 0 ? (
-        <div className={estilos.cards}>
-          {posts.map((post) => (
-            <Card
-              key={post.id}
-              props={post}
-              data={formatData(post.created_at)}
-            />
-          ))}
-        </div>
-      ) : (
-        <div className={estilos.cards} style={{ columnCount: "3" }}>
-          {posts.map((post) => (
-            <Card
-              key={post.id}
-              props={post}
-              data={formatData(post.created_at)}
-            />
-          ))}
-        </div>
-      )}
+      <div className={estilos.cards}>
+        {posts.map((post) => (
+          <Card key={post.id} props={post} data={formatData(post.created_at)} />
+        ))}
+      </div>
     </>
   );
 };

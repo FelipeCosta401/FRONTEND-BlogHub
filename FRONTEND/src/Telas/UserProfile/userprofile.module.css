@@ -1,0 +1,41 @@
+.header{
+    height: 10%;
+    padding: 0 2vw;
+    margin-bottom: 2vh;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+}
+
+.headerLink{
+    text-decoration: none;
+    color: #000;
+    display: flex;
+    gap: 2vw;
+    align-items: center;
+}
+
+.cards{
+    column-count: 3;
+}
+
+.card{
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+}
+
+.card:hover{
+    opacity: 0.7;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.6);
+    cursor: pointer;
+}
+
+@media(max-width: 700px){
+    .cards{        
+        column-count: 2;
+    }
+}
+
+
+@media(max-width: 550px){
+    .cards{        
+        column-count: 1;
+    }
+}

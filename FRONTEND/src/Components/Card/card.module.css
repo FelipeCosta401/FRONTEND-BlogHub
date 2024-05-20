@@ -1,6 +1,7 @@
 
 .container{
     display: flex;
+    width: 100%;
     flex-direction: column;
     justify-content: space-between;
     margin-bottom: 20px;
@@ -38,8 +39,11 @@ img{
     height: 25%;
 }
 
-.userImage{
+.userImg{
     width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-size: cover;
 }
 
 .cardContent{

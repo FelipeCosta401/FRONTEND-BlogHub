@@ -10,3 +10,10 @@ main{
     margin: 5vh auto;
     height: 100%;
 }
+
+@media(max-width: 500px){
+    .publi{
+        margin: 0;
+        width: 100%;
+    }
+}

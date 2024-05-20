@@ -4,14 +4,29 @@ import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
 
 import { IoIosCloseCircle } from "react-icons/io";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 import estilos from "./newcomment.module.css";
+import axiosInstance from "../../../services/axiosConfig";
 
-const NewComment = ({ onClose }) => {
+const NewComment = ({ onClose, id, userId, onUpdate }) => {
   const [message, setMessage] = useState();
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    axiosInstance
+      .post("comment", {
+        message,
+        publication_id: id,
+        user_id: userId,
+      })
+      .then(() => {
+        toast.success("Comentário publicado!");
+        onUpdate();
+        onClose();
+      })
+      .finally(() => toast.success("Comentário publicado!"));
   };
   return (
     <>
@@ -37,6 +52,7 @@ const NewComment = ({ onClose }) => {
           className={estilos.closeIcon}
           onClick={() => onClose()}
         />
+        <ToastContainer />
       </div>
     </>
   );

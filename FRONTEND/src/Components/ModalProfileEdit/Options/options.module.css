@@ -1,0 +1,49 @@
+.userImg{
+    width: 75px;
+    height: 75px;
+    border-radius: 50%;
+    background-size: cover;
+}
+
+.main{
+    height: 90%;
+}
+
+.userPreview{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 40%;
+
+}
+
+.options{
+    height: 60%;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+.option{
+    height: 25%;
+    padding: 0 1vw ;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #fff;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+
+.option:hover{    
+    background-color: #dadada;
+    cursor: pointer;
+}
+
+.option:first-child{
+    border-radius: 8px 8px 0 0 ;
+}
+
+.option:last-child{
+    border-radius: 0 0 8px 8px ;
+}

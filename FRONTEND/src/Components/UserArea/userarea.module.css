@@ -1,0 +1,82 @@
+.container{
+    height: 40vh;
+    display: flex;
+    justify-content: space-between;
+}
+
+.userImg{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 150px;
+    height: 150px;
+    background-size: cover;
+    border-radius: 50%;
+}
+
+
+.userImg:hover{
+    opacity: 0.7;
+}
+
+.userInfo{    
+    margin: 5vh 2vw;
+}
+
+.userInfo h1{
+    margin: 0;
+    text-align: start;
+}
+
+.settingsArea{
+    width: 25vw;
+}
+
+.icon:hover{
+    cursor: pointer;   
+    color: blue;
+    animation: girar 0.3s linear;
+}
+
+@keyframes girar {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(120deg);
+    }
+}
+
+.settingsIcon{
+    margin: 5vh 2vw;
+    text-align: end;
+}
+
+
+.inputEdit{
+    width: 100%;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    font-size: 2em;
+    font-weight: 800;
+    color: #213547;
+}
+
+
+
+.inputEditDesc{
+    height: 50%;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    font-size: 16px;
+    color: #213547;
+}
+
+@media(max-width: 450px){
+
+    .userImg{
+        height: 110px;
+    }
+}

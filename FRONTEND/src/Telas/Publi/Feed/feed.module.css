@@ -3,12 +3,18 @@ h1{
     margin-bottom: 35px;
 }
 
-
-
 .cards{
-    height: 100%;
-    width: 880px;
-    margin: auto;
-    column-count: 2;
-    column-gap: 20px;
+    column-count: 3;
+}
+
+@media(max-width: 850px){
+    .cards{        
+        column-count: 2;
+    }
+}
+
+@media(max-width: 650px){
+    .cards{        
+        column-count: 1;
+    }
 }

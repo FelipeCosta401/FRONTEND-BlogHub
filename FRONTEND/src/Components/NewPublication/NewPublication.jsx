@@ -1,19 +1,21 @@
-import { useState, useEffect } from "react";
+import { useState, useContext } from "react";
+import axiosInstance from "../../services/axiosConfig";
+import userContext from "../../contexts/userContext";
 
 import Button from "@mui/material/Button";
-
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import { FaRegUserCircle, FaPaperclip } from "react-icons/fa";
-import { MdEmojiEmotions } from "react-icons/md";
-import { FiPlusCircle } from "react-icons/fi";
 import { IoMdSend } from "react-icons/io";
 
 import estilos from "./newpublication.module.css";
 
 const NewPublication = ({ userInfo }) => {
+  const { info } = useContext(userContext);
   const [post, setPost] = useState({
     title: "",
     description: "",
-    publication_image: "",
+    img: "",
   });
 
   const handleChange = (e) => {
@@ -26,7 +28,26 @@ const NewPublication = ({ userInfo }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(post);
+    if (!post.title || !post.description) {
+      toast.warn("Preencha os campos!");
+    } else {
+      axiosInstance
+        .post("publication", {
+          user_id: info.id,
+          title: post.title,
+          description: post.description,
+          publication_image: post.img,
+        })
+        .then(() => {
+          toast.success("Publicado com sucesso!");
+          setPost({
+            title: "",
+            description: "",
+            img: "",
+          });
+        })
+        .catch((err) => console.log(err));
+    }
   };
 
   return (
@@ -34,15 +55,22 @@ const NewPublication = ({ userInfo }) => {
       <div>
         <form className={estilos.container} onSubmit={handleSubmit}>
           <div className={estilos.main}>
-            <FaRegUserCircle size={40} />
+            {info.perfil_image ? (
+              <div
+                className={estilos.userImg}
+                style={{ backgroundImage: `url(${info.perfil_image})` }}
+                alt="Foto de perfil"
+              ></div>
+            ) : (
+              <FaRegUserCircle size={40} style={{ alignSelf: "start" }} />
+            )}
             <div className={estilos.inputGroup}>
               <input
                 type="text"
-                name="title"
+                name="title"  
                 value={post.title}
                 onChange={handleChange}
                 placeholder="Qual o assunto do momento?"
-                style={{ width: "50%", margin: "0 auto" }}
                 className={estilos.input}
               />
               <input
@@ -53,21 +81,22 @@ const NewPublication = ({ userInfo }) => {
                 placeholder="Fale mais sobre...."
                 className={estilos.input}
               />
-            </div>
-          </div>
-          <div className={estilos.footer}>
-            <div className={estilos.options}>
-              <FaPaperclip size={30} />
-              <MdEmojiEmotions size={30} />
-              <FiPlusCircle size={30} />
-            </div>
-            <div className={estilos.btnSend}>
+              <input
+                type="text"
+                name="img"
+                value={post.img}
+                onChange={handleChange}
+                placeholder="Endereço da imagem...."
+                className={estilos.input}
+              />
+              <br />
               <Button type="submit" variant="contained" endIcon={<IoMdSend />}>
                 Publicar
               </Button>
             </div>
           </div>
         </form>
+        <ToastContainer />
       </div>
     </>
   );

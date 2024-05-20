@@ -2,6 +2,7 @@
     border-radius: 8px;
     background-color: #fff;
     margin-bottom: 2vh;
+    padding-bottom: 10px;
 }
 
 
@@ -16,8 +17,20 @@
     justify-content: space-between;
 }
 
+.user:hover{
+    cursor: pointer;
+    color: blue;
+}
+
 .userInfo p{
     font-size: 0.9rem;    
+}
+
+.userImg{
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-size: cover;
 }
 
 .content, .commentInfo{
@@ -28,13 +41,77 @@
     gap: 10px;
 }
 
+.commentInfo{
+    margin: 10px 0;
+}
+
+.commentInfo:hover{
+    cursor: pointer;
+    color: blue;
+}
+
 
 .comment p{
     font-weight: 500;
+}
+
+
+.answer, .newAnswer{
+    background-color: #f3f3f3;
+    width: 90%;
+    border-radius: 4px;
+    margin: 5px 2vw; 
+}
+
+.newAnswer{
+    height: 10vh;
+    display: flex;
+    gap: 5px;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.newAnswer input{
+    border: none;
+    background-color: transparent;
+    width: 100%;
+    outline: none;
+    margin-left: 25px;
+    font-size: 0.9rem;
+    font-family: 'poppins';
+    color: #000;
+}
+
+.answerHeader{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 10px;
+}
+
+.answerContent{
+    margin-left: 25px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.answerLikes{
+    display: flex;
+    margin: 0 10px 0 10px;
+}
+
+.userImg{
+    width: 20px;
+    height: 20px;
 }
 
 .footer{
     display: flex;
     align-items: center;
     margin: 0 15px;
+}
+
+.footer:hover{
+    color: blue;
+    cursor: pointer;
 }
